@@ -1,14 +1,33 @@
 class GameOfLife {
-	constructor(initialBoard = Array(3).fill(Array(3).fill(0))[1][1] = 1) {
-		this.board = initialBoard;
+	constructor(rows, columns) {
+		this.rows = rows || 3;
+		this.columns = columns || 3;
+		this.board = Array(this.rows).fill(0)
+			.map(row => Array(this.columns).fill(0));
+	}
+
+	toggleLifeAndDeath(x, y) {
+		this.board[x][y] = 1;
+	}
+
+	getRows() {
+		return this.rows;
+	}
+
+	getColumns() {
+		return this.columns;
+	}
+
+	getBoard() {
+		return this.board;
 	}
 
 	nextIteration() {
 		let nextBoardState = this.board.slice();
 		for (let i = 0; i < this.board.length; i++) {
-			for (let j = 0; j < this.board[i]; j++) {
+			for (let j = 0; j < this.board[i].length; j++) {
 				const newLifeAndDeathState = this.determineLifeAndDeath(i, j);
-				nextBoardState[i][j] = newLifeAndDeathState;
+				nextBoardState[i][j] = Number(newLifeAndDeathState);
 			}
 		}
 		this.board = nextBoardState;
@@ -26,13 +45,13 @@ class GameOfLife {
 		c = this.isAlive(x - 1, y + 1);
 		d = this.isAlive(x, y + 1);
 		e = this.isAlive(x + 1, y + 1);
-		f = this.isAlive(x + 1 , y);
+		f = this.isAlive(x + 1, y);
 		g = this.isAlive(x + 1, y - 1);
 		h = this.isAlive(x, y - 1);
 
 		let adjacentSquares = [a, b, c, d, e, f, g, h];
 		let liveNeighbours = 0;
-		for(let i = 0; i < adjacentSquares.length; i++) {
+		for (let i = 0; i < adjacentSquares.length; i++) {
 			if (adjacentSquares[i]) {
 				liveNeighbours++;
 			}
@@ -109,7 +128,7 @@ class GameOfLife {
 			b = this.isAlive(x + 1, y - 1);
 			c = this.isAlive(x + 1, y);
 		}
-		
+
 		// bottom left corner
 		if (x !== 0 && y === 0) {
 			a = this.isAlive(x - 1, y);
@@ -139,13 +158,13 @@ class GameOfLife {
 		// determine if <i, j> is a corner, side or centre square
 		// and invoke the corresponding function
 		if (this.isCorner(x, y)) {
-			return this.corverLives(x, y);
-		} 
-		
+			return this.cornerLives(x, y);
+		}
+
 		if (this.isSide(x, y)) {
 			return this.sideLives(x, y);
-		} 
-		
+		}
+
 		if (this.isCentre(x, y)) {
 			return this.centreLives(x, y);
 		}

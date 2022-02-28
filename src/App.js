@@ -1,14 +1,23 @@
-import GameOfLife from './js/gameOfLife';
+import GameOfLife from './js/GameOfLife';
 import './App.css';
-import {  useState } from 'react';
+import { useState } from 'react';
+import { Board } from './components/Board';
 
 const game = new GameOfLife();
-const startGame = setInterval(() => {
+
+// game set up
+game.toggleLifeAndDeath(1, 1);
+game.toggleLifeAndDeath(1, 2);
+game.toggleLifeAndDeath(2, 2);
+
+console.log(game.getBoard())
+const startGame = () => {
   game.nextIteration();
-}, 2000);
+}
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
+
   const handleStartStop = () => {
     if (isPlaying) {
       clearInterval(startGame);
@@ -21,14 +30,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
-      </header>
       <div>
         <div>
-          
+          <Board gameboard={game.board} />
         </div>
         <button onClick={handleStartStop}>Start/Stop</button>
       </div>
+      </header>
     </div>
   );
 }
