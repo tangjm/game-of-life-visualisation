@@ -8,8 +8,9 @@ export const Board = ({ gameboard }) => {
 		for (let i = 0; i < gameboard.length; i++) {
 			let rows = [];
 			for (let j = 0; j < gameboard[i].length; j++) {
-				board[i] = [...rows, <Square value={gameboard[i][j]} key={board.length}/>];
+				rows.push(<Square value={gameboard[i][j]} key={board.length}/>);
 			}
+			board[i] = rows;
 		}
 		return board;
 	}

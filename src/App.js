@@ -32,7 +32,7 @@ function App() {
       <header className="App-header">
       <div>
         <div>
-          <Board gameboard={game.board} />
+          <Board gameboard={game.getBoard()} />
         </div>
         <button onClick={handleStartStop}>Start/Stop</button>
       </div>
