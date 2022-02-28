@@ -2,13 +2,21 @@ import React from 'react'
 import { Square } from './Square';
 import PropTypes from 'prop-types';
 
-export const Board = ({ gameboard }) => {
+export const Board = ({ gameboard, toggleSquare }) => {
 	const createBoard = () => {
 		let board = [];
 		for (let i = 0; i < gameboard.length; i++) {
 			let rows = [];
 			for (let j = 0; j < gameboard[i].length; j++) {
-				rows.push(<Square value={gameboard[i][j]} key={board.length}/>);
+				const squarePosition = [i, j];
+				rows = [
+					...rows,
+					<Square
+						value={gameboard[i][j]}
+						key={`<${squarePosition.join(",")}>`}
+						toggleSquare={toggleSquare}
+						position={squarePosition} />
+				];
 			}
 			board[i] = rows;
 		}
@@ -22,11 +30,12 @@ export const Board = ({ gameboard }) => {
 	}
 	return (
 		<>
-		{renderBoard(createBoard())}
+			{renderBoard(createBoard())}
 		</>
 	)
 }
 
 Board.propTypes = {
 	gameboard: PropTypes.array.isRequired,
+	toggleSquare: PropTypes.func.isRequired,
 }
