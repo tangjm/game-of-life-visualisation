@@ -276,6 +276,24 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[6].beehive6);
 		})
+
+		it(`Angle Brackets 6 turns into Diagonal Squares 8`, () => {
+			const game = new GameOfLife(6, 6);
+			game.toggleLifeAndDeath(1, 1);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 1);
+
+			game.toggleLifeAndDeath(3, 4);
+			game.toggleLifeAndDeath(4, 3);
+			game.toggleLifeAndDeath(4, 4);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[8].diagonalSquares8);
+		})
 	})
 
 	describe(`7 square patterns`, () => {
