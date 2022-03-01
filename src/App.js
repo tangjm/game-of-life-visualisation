@@ -12,7 +12,9 @@ const game = new GameOfLife(32, 70);
 // game.toggleLifeAndDeath(1, 3);
 const initialPosition = new StartingPosition();
 // initialPosition.beacon(game, [1, 1]);
-initialPosition.gospelGlider(game, [1, 1])
+// initialPosition.gospelGlider(game, [1, 1])
+initialPosition.acorn(game, [15, 20])
+
 
 
 function App() {
@@ -30,7 +32,7 @@ function App() {
       return setInterval(() => {
         game.nextIteration();
         setBoard(board => game.getBoard());
-      }, 500);
+      }, 100);
     });
   };
 

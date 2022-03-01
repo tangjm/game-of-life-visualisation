@@ -72,6 +72,18 @@ class GameSetUp {
 		this.smoke(game, smoke);
 		this.gate(game, gate);
 	}
+
+	acorn(game, topLeftPair) {
+		// 3x7 acorn
+		const [x, y] = topLeftPair;
+		game.toggleLifeAndDeath(x, y + 1);
+		game.toggleLifeAndDeath(x + 1, y + 3);
+		game.toggleLifeAndDeath(x + 2, y);
+		game.toggleLifeAndDeath(x + 2, y + 1);
+		game.toggleLifeAndDeath(x + 2, y + 4);
+		game.toggleLifeAndDeath(x + 2, y + 5);
+		game.toggleLifeAndDeath(x + 2, y + 6);
+	}
 }
 
 export default GameSetUp;
