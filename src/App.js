@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Board } from './components/Board';
 
 const game = new GameOfLife(30, 70);
-
+// 32x50 default board size
 // game set up
 game.toggleLifeAndDeath(1, 1);
 game.toggleLifeAndDeath(1, 2);
