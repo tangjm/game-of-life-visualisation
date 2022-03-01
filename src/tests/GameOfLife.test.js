@@ -15,7 +15,7 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).toEqual(patterns[0].dead);
 		})
 	})
-	
+
 	describe(`2 square patterns`, () => {
 		it(`Rectangular 2 should die`, () => {
 			const game = new GameOfLife(3, 3);
@@ -30,6 +30,7 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).toEqual(patterns[0].dead);
 		})
 	})
+
 	describe(`3 square patterns`, () => {
 		it(`Bent 3 should turn into a 2x2 square`, () => {
 			const game = new GameOfLife(3, 3);
@@ -103,8 +104,7 @@ describe(`test suite for GameOfLife`, () => {
 	})
 
 	describe(`4 square patterns`, () => {
-
-		xit(`2x2 square should remain the same`, () => {
+		it(`2x2 square should remain the same`, () => {
 			const game = new GameOfLife(3, 3);
 			game.toggleLifeAndDeath(1, 1);
 			game.toggleLifeAndDeath(1, 2);
