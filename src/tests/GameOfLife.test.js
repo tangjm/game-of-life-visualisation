@@ -313,5 +313,23 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[8].hollow8);
 		})
+
+		it(`Loaf 7 should not change`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(1, 1);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 0);
+			game.toggleLifeAndDeath(2, 3);
+			game.toggleLifeAndDeath(3, 1);
+			game.toggleLifeAndDeath(3, 3);
+			game.toggleLifeAndDeath(4, 2);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[7].loaf7);
+		})
 	})
 })
