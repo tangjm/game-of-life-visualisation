@@ -12,9 +12,7 @@ describe(`test suite for GameOfLife`, () => {
 			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
-	
-			console.log("starting", startingPosition);
-			console.log("endingPosition", endingPosition)
+
 			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[4].square);
 		})

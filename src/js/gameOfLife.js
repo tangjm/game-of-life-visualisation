@@ -2,16 +2,12 @@ class GameOfLife {
 	constructor(rows, columns) {
 		this.rows = rows || 3;
 		this.columns = columns || 3;
-		this.board1 = Array(this.rows).fill(0)
+		this.board = Array(this.rows).fill(0)
 			.map(row => Array(this.columns).fill(0));
-		this.board2 = Array(this.rows).fill(0)
-			.map(row => Array(this.columns).fill(0));
-		this.nextBoard = 2;
 	}
 
 	toggleLifeAndDeath(x, y) {
-		this.board2[x][y] = 1;
-		console.log(this.getBoard())
+		this.board[x][y] = 1;
 	}
 
 	getRows() {
@@ -23,25 +19,24 @@ class GameOfLife {
 	}
 
 	getBoard() {
-		return this.nextBoard === 1 ? this.board1 : this.board2;
+		return this.board;
 	}
 
 	nextIteration() {
-		// if nextboard is board1, we use board2 to determine the nextboard's L&D
-		let board = this.nextBoard === 1 ? this.board2 : this.board1;
-		let nextBoard = this.nextBoard === 1 ? this.board1 : this.board2;
-		for (let i = 0; i < board.length; i++) {
-			for (let j = 0; j < board[i].length; j++) {
+		let nextBoard = Array(this.board.length).fill(0).map(row => {
+			return Array(this.board[0].length).fill(0);
+		})
+		for (let i = 0; i < this.board.length; i++) {
+			for (let j = 0; j < this.board[i].length; j++) {
 				const newLifeAndDeathState = this.determineLifeAndDeath(i, j);
 				nextBoard[i][j] = Number(newLifeAndDeathState);
 			}
 		}
-		// once we're done, the nextboard will be board2
-		this.nextBoard = this.nextBoard === 1 ? 2 : 1;
+		this.board = nextBoard;
 	}
 
 	isAlive(x, y) {
-		return Boolean(this.nextBoard === 1 ? this.board2[x][y] : this.board1[x][y]);
+		return Boolean(this.board[x][y]);
 	}
 	
 	determineLifeAndDeath(x, y) {
@@ -97,7 +92,7 @@ class GameOfLife {
 		}
 
 		// right side
-		if (y === this.board1.length - 1) {
+		if (y === this.board.length - 1) {
 			a = this.isAlive(x - 1, y - 1);
 			b = this.isAlive(x - 1, y);
 			c = this.isAlive(x + 1, y);
@@ -106,7 +101,7 @@ class GameOfLife {
 		}
 
 		// bottom side 
-		if (x === this.board1.length - 1) {
+		if (x === this.board.length - 1) {
 			a = this.isAlive(x - 1, y - 1);
 			b = this.isAlive(x - 1, y);
 			c = this.isAlive(x - 1, y + 1);
@@ -178,15 +173,15 @@ class GameOfLife {
 	}
 
 	isCorner(x, y) {
-		if (x !== 0 && x !== this.board1.length - 1) return false;
-		if (y !== 0 && y !== this.board1.length - 1) return false;
+		if (x !== 0 && x !== this.board.length - 1) return false;
+		if (y !== 0 && y !== this.board.length - 1) return false;
 		return true;
 	}
 
 	isSide(x, y) {
 		if (this.isCorner(x, y)) return false;
-		if (x === 0 || x === this.board1.length - 1) return true;
-		if (y === 0 || y === this.board1.length - 1) return true;
+		if (x === 0 || x === this.board.length - 1) return true;
+		if (y === 0 || y === this.board.length - 1) return true;
 		return false;
 	}
 
