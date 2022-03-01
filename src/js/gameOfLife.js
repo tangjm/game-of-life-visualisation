@@ -2,12 +2,16 @@ class GameOfLife {
 	constructor(rows, columns) {
 		this.rows = rows || 3;
 		this.columns = columns || 3;
-		this.board = Array(this.rows).fill(0)
+		this.board1 = Array(this.rows).fill(0)
 			.map(row => Array(this.columns).fill(0));
+		this.board2 = Array(this.rows).fill(0)
+			.map(row => Array(this.columns).fill(0));
+		this.nextBoard = 2;
 	}
 
 	toggleLifeAndDeath(x, y) {
-		this.board[x][y] = 1;
+		this.board2[x][y] = 1;
+		console.log(this.getBoard())
 	}
 
 	getRows() {
@@ -19,22 +23,41 @@ class GameOfLife {
 	}
 
 	getBoard() {
-		return this.board;
+		return this.nextBoard === 1 ? this.board1 : this.board2;
 	}
 
 	nextIteration() {
-		let nextBoardState = this.board.slice();
-		for (let i = 0; i < this.board.length; i++) {
-			for (let j = 0; j < this.board[i].length; j++) {
+		// if nextboard is board1, we use board2 to determine the nextboard's L&D
+		let board = this.nextBoard === 1 ? this.board2 : this.board1;
+		let nextBoard = this.nextBoard === 1 ? this.board1 : this.board2;
+		for (let i = 0; i < board.length; i++) {
+			for (let j = 0; j < board[i].length; j++) {
 				const newLifeAndDeathState = this.determineLifeAndDeath(i, j);
-				nextBoardState[i][j] = Number(newLifeAndDeathState);
+				nextBoard[i][j] = Number(newLifeAndDeathState);
 			}
 		}
-		this.board = nextBoardState;
+		// once we're done, the nextboard will be board2
+		this.nextBoard = this.nextBoard === 1 ? 2 : 1;
 	}
 
 	isAlive(x, y) {
-		return Boolean(this.board[x][y]);
+		return Boolean(this.nextBoard === 1 ? this.board2[x][y] : this.board1[x][y]);
+	}
+	
+	determineLifeAndDeath(x, y) {
+		// determine if <i, j> is a corner, side or centre square
+		// and invoke the corresponding function
+		if (this.isCorner(x, y)) {
+			return this.cornerLives(x, y);
+		}
+
+		if (this.isSide(x, y)) {
+			return this.sideLives(x, y);
+		}
+
+		if (this.isCentre(x, y)) {
+			return this.centreLives(x, y);
+		}
 	}
 
 	centreLives(x, y) {
@@ -74,7 +97,7 @@ class GameOfLife {
 		}
 
 		// right side
-		if (y === this.board.length - 1) {
+		if (y === this.board1.length - 1) {
 			a = this.isAlive(x - 1, y - 1);
 			b = this.isAlive(x - 1, y);
 			c = this.isAlive(x + 1, y);
@@ -83,7 +106,7 @@ class GameOfLife {
 		}
 
 		// bottom side 
-		if (x === this.board.length - 1) {
+		if (x === this.board1.length - 1) {
 			a = this.isAlive(x - 1, y - 1);
 			b = this.isAlive(x - 1, y);
 			c = this.isAlive(x - 1, y + 1);
@@ -154,32 +177,16 @@ class GameOfLife {
 		return false;
 	}
 
-	determineLifeAndDeath(x, y) {
-		// determine if <i, j> is a corner, side or centre square
-		// and invoke the corresponding function
-		if (this.isCorner(x, y)) {
-			return this.cornerLives(x, y);
-		}
-
-		if (this.isSide(x, y)) {
-			return this.sideLives(x, y);
-		}
-
-		if (this.isCentre(x, y)) {
-			return this.centreLives(x, y);
-		}
-	}
-
 	isCorner(x, y) {
-		if (x !== 0 && x !== this.board.length - 1) return false;
-		if (y !== 0 && y !== this.board.length - 1) return false;
+		if (x !== 0 && x !== this.board1.length - 1) return false;
+		if (y !== 0 && y !== this.board1.length - 1) return false;
 		return true;
 	}
 
 	isSide(x, y) {
 		if (this.isCorner(x, y)) return false;
-		if (x === 0 || x === this.board.length - 1) return true;
-		if (y === 0 || y === this.board.length - 1) return true;
+		if (x === 0 || x === this.board1.length - 1) return true;
+		if (y === 0 || y === this.board1.length - 1) return true;
 		return false;
 	}
 

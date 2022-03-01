@@ -3,12 +3,12 @@ import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
 
-const game = new GameOfLife(9, 9);
+const game = new GameOfLife(30, 70);
 
 // game set up
 game.toggleLifeAndDeath(1, 1);
 game.toggleLifeAndDeath(1, 2);
-game.toggleLifeAndDeath(2, 2);
+game.toggleLifeAndDeath(1, 3);
 
 console.log(game.getBoard())
 
@@ -21,17 +21,18 @@ function App() {
     setBoard(board => game.getBoard());
   }
 
-  const startGame = setInterval(() => {
+  const startGame = () => {
     game.nextIteration();
-  }, 1000);
+  };
 
   const handleStartStop = () => {
-    if (isPlaying) {
-      clearInterval(startGame);
-    } else {
-      startGame();
-    }
-    setIsPlaying(isPlaying => !isPlaying);
+    // if (isPlaying) {
+    //   clearInterval(startGame);
+    // } else {
+    //   startGame();
+    // }
+    // setIsPlaying(isPlaying => !isPlaying);
+    startGame();
   }
 
   return (
