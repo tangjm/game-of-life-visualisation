@@ -2,6 +2,20 @@ import GameOfLife from "../js/GameOfLife";
 import patterns from './patterns';
 
 describe(`test suite for GameOfLife`, () => {
+	describe(`1 square patterns`, () => {
+		it(`Single square dies`, () => {
+			const game = new GameOfLife(3, 3);
+			game.toggleLifeAndDeath(1, 1);
+			
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[0].dead);
+		})
+	})
+	
 	describe(`2 square patterns`, () => {
 		it(`Rectangular 2 should die`, () => {
 			const game = new GameOfLife(3, 3);
