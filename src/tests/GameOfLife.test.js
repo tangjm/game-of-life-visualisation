@@ -245,5 +245,23 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[7].jellyfish7);
 		})
+
+		it(`Jellyfish 7 turns into Hollow 8`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(0, 2);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(1, 3);
+			game.toggleLifeAndDeath(2, 1);
+			game.toggleLifeAndDeath(2, 3);
+			game.toggleLifeAndDeath(2, 4);
+			game.toggleLifeAndDeath(3, 2);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[8].hollow8);
+		})
 	})
 })
