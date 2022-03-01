@@ -1,4 +1,5 @@
 import GameOfLife from './js/GameOfLife';
+import StartingPosition from './js/GameSetUp';
 import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
@@ -9,15 +10,10 @@ const game = new GameOfLife(32, 70);
 // game.toggleLifeAndDeath(1, 1);
 // game.toggleLifeAndDeath(1, 2);
 // game.toggleLifeAndDeath(1, 3);
-game.toggleLifeAndDeath(1, 1);
-game.toggleLifeAndDeath(1, 2);
-game.toggleLifeAndDeath(2, 1);
-game.toggleLifeAndDeath(2, 2);
+const initialPosition = new StartingPosition();
+initialPosition.square(game, [1, 1]);
+initialPosition.square(game, [3, 3]);
 
-game.toggleLifeAndDeath(3, 4);
-game.toggleLifeAndDeath(4, 3);
-game.toggleLifeAndDeath(4, 4);
-game.toggleLifeAndDeath(3, 3);
 
 function App() {
   const [stop, setStop] = useState(true);
