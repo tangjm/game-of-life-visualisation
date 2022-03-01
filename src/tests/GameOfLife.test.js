@@ -132,6 +132,21 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).toEqual(startingPosition);
 		})
 
+		it(`Tub 4 doesn't change`, () => {
+			const game = new GameOfLife(3, 3);
+			game.toggleLifeAndDeath(0, 1);
+			game.toggleLifeAndDeath(1, 0);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 1);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[4].tub4);
+		})
+
 		it(`Bent 4 turns into Zigzag 4`, () => {
 			const game = new GameOfLife(5, 5);
 			game.toggleLifeAndDeath(2, 1);
