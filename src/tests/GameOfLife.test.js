@@ -145,7 +145,22 @@ describe(`test suite for GameOfLife`, () => {
 			const endingPosition = game.getBoard();
 
 			expect(endingPosition).not.toEqual(startingPosition);
-			expect(endingPosition).toEqual(patterns[6].rectangle6);
+			expect(endingPosition).toEqual(patterns[6].rectangleVertical);
+		})
+
+		it(`Vertical Straight 4 turns into a horizontal Rectangular 6`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 2);
+			game.toggleLifeAndDeath(3, 2);
+			game.toggleLifeAndDeath(4, 2);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[6].rectangleHorizontal);
 		})
 	})
 })
