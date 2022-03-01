@@ -11,8 +11,8 @@ const game = new GameOfLife(32, 70);
 // game.toggleLifeAndDeath(1, 2);
 // game.toggleLifeAndDeath(1, 3);
 const initialPosition = new StartingPosition();
-initialPosition.beacon(game, [1, 1]);
-
+// initialPosition.beacon(game, [1, 1]);
+initialPosition.gospelGlider(game, [1, 1])
 
 
 function App() {
