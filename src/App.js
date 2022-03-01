@@ -3,36 +3,48 @@ import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
 
-const game = new GameOfLife(30, 70);
+const game = new GameOfLife(32, 70);
 // 32x50 default board size
 // game set up
+// game.toggleLifeAndDeath(1, 1);
+// game.toggleLifeAndDeath(1, 2);
+// game.toggleLifeAndDeath(1, 3);
 game.toggleLifeAndDeath(1, 1);
 game.toggleLifeAndDeath(1, 2);
-game.toggleLifeAndDeath(1, 3);
+game.toggleLifeAndDeath(2, 1);
+game.toggleLifeAndDeath(2, 2);
 
-console.log(game.getBoard())
+game.toggleLifeAndDeath(3, 4);
+game.toggleLifeAndDeath(4, 3);
+game.toggleLifeAndDeath(4, 4);
+game.toggleLifeAndDeath(3, 3);
 
 function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [stop, setStop] = useState(true);
   const [board, setBoard] = useState(game.getBoard());
+  const [startStopHandler, setStartStopHandler] = useState(``);
 
   const toggleSquare = (x, y) => {
     game.toggleLifeAndDeath(x, y);
     setBoard(board => game.getBoard());
   }
 
-  const startGame = () => {
-    game.nextIteration();
+  const handleStart = () => {
+    setStartStopHandler(startStopHandler => {
+      return setInterval(() => {
+        game.nextIteration();
+        setBoard(board => game.getBoard());
+      }, 500);
+    });
   };
 
+  const handleStop = () => {
+    return clearInterval(startStopHandler);
+  }
+
   const handleStartStop = () => {
-    // if (isPlaying) {
-    //   clearInterval(startGame);
-    // } else {
-    //   startGame();
-    // }
-    // setIsPlaying(isPlaying => !isPlaying);
-    startGame();
+    stop ? handleStart() : handleStop();
+    setStop(stop => !stop);
   }
 
   return (
