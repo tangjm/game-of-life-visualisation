@@ -209,6 +209,20 @@ describe(`test suite for GameOfLife`, () => {
 	})
 
 	describe(`6 square tests`, () => {
-		
+		const game = new GameOfLife(5, 5);
+		game.toggleLifeAndDeath(1, 2);
+		game.toggleLifeAndDeath(2, 1);
+		game.toggleLifeAndDeath(2, 2);
+		game.toggleLifeAndDeath(2, 3);
+		game.toggleLifeAndDeath(3, 1);
+		game.toggleLifeAndDeath(3, 2);
+
+
+		const startingPosition = game.getBoard();
+		game.nextIteration();
+		const endingPosition = game.getBoard();
+
+		expect(endingPosition).not.toEqual(startingPosition);
+		expect(endingPosition).toEqual(patterns[7].arrow7);
 	})
 })
