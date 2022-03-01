@@ -1,4 +1,11 @@
 const patterns = {
+	0: {
+		dead: [
+			[0, 0, 0],
+			[0, 0, 0],
+			[0, 0, 0]
+		]
+	},
 	1: {
 		singleSquare: [
 			[0, 0, 0],
