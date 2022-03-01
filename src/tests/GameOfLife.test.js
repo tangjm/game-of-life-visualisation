@@ -350,4 +350,26 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).toEqual(patterns[7].loaf7);
 		})
 	})
+
+	describe(`8 square patterns`, () => {
+		it(`Diagonal Squares 8 turns into Angle Brackets 6`, () => {
+			const game = new GameOfLife(6, 6);
+			game.toggleLifeAndDeath(1, 1);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 1);
+			game.toggleLifeAndDeath(2, 2);
+
+			game.toggleLifeAndDeath(3, 4);
+			game.toggleLifeAndDeath(4, 3);
+			game.toggleLifeAndDeath(4, 4);
+			game.toggleLifeAndDeath(3, 3);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[6].angleBrackets6);
+		})
+	})
 })
