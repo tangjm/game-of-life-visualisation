@@ -58,6 +58,20 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[3].vertical3);
 		})
+
+		it(`Large knight 3 should turn into a rectangular 2`, () => {
+			const game = new GameOfLife(3, 3);
+			game.toggleLifeAndDeath(2, 0);
+			game.toggleLifeAndDeath(1, 0);
+			game.toggleLifeAndDeath(0, 1);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[2].rectangle2);
+		})
 	})
 
 	describe(`4 square patterns`, () => {
