@@ -209,20 +209,41 @@ describe(`test suite for GameOfLife`, () => {
 	})
 
 	describe(`6 square tests`, () => {
-		const game = new GameOfLife(5, 5);
-		game.toggleLifeAndDeath(1, 2);
-		game.toggleLifeAndDeath(2, 1);
-		game.toggleLifeAndDeath(2, 2);
-		game.toggleLifeAndDeath(2, 3);
-		game.toggleLifeAndDeath(3, 1);
-		game.toggleLifeAndDeath(3, 2);
+		it(`Double Arrow 6 turns into Arrow 7`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 1);
+			game.toggleLifeAndDeath(2, 2);
+			game.toggleLifeAndDeath(2, 3);
+			game.toggleLifeAndDeath(3, 1);
+			game.toggleLifeAndDeath(3, 2);
 
 
-		const startingPosition = game.getBoard();
-		game.nextIteration();
-		const endingPosition = game.getBoard();
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
 
-		expect(endingPosition).not.toEqual(startingPosition);
-		expect(endingPosition).toEqual(patterns[7].arrow7);
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[7].arrow7);
+		})
+	})
+
+	describe(`7 square tests`, () => {
+		it(`Arrow 7 turns into Jellyfish 7`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(1, 1);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(1, 3);
+			game.toggleLifeAndDeath(2, 3);
+			game.toggleLifeAndDeath(3, 1);
+			game.toggleLifeAndDeath(3, 3);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[7].jellyfish7);
+		})
 	})
 })
