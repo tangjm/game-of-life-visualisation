@@ -16,6 +16,20 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[4].square);
 		})
+		
+		it(`Diagonal 3 should turn into a single square`, () => {
+			const game = new GameOfLife(3, 3);
+			game.toggleLifeAndDeath(0, 0);
+			game.toggleLifeAndDeath(1, 1);
+			game.toggleLifeAndDeath(2, 2);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[1].singleSquare);
+		})
 	})
 
 	describe(`4 square patterns`, () => {
