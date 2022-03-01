@@ -6,7 +6,7 @@ describe(`test suite for GameOfLife`, () => {
 		it(`Single square dies`, () => {
 			const game = new GameOfLife(3, 3);
 			game.toggleLifeAndDeath(1, 1);
-			
+
 			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
@@ -110,11 +110,40 @@ describe(`test suite for GameOfLife`, () => {
 			game.toggleLifeAndDeath(1, 2);
 			game.toggleLifeAndDeath(2, 1);
 			game.toggleLifeAndDeath(2, 2);
-	
+
 			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
-	
+
+			expect(endingPosition).toEqual(startingPosition);
+		})
+
+		it(`Bent 4 turns into Zigzag 4`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(2, 1);
+			game.toggleLifeAndDeath(2, 2);
+			game.toggleLifeAndDeath(2, 3);
+			game.toggleLifeAndDeath(3, 1);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[4].zigzag4);
+		})
+
+		xit(`Zigzag 4`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 1);
+			game.toggleLifeAndDeath(2, 2);
+			game.toggleLifeAndDeath(3, 1);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
 			expect(endingPosition).toEqual(startingPosition);
 		})
 	})
