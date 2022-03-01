@@ -133,7 +133,7 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).toEqual(patterns[4].zigzag4);
 		})
 
-		xit(`Zigzag 4`, () => {
+		it(`Zigzag 4 turns into Rectangular 6`, () => {
 			const game = new GameOfLife(5, 5);
 			game.toggleLifeAndDeath(1, 2);
 			game.toggleLifeAndDeath(2, 1);
@@ -144,7 +144,8 @@ describe(`test suite for GameOfLife`, () => {
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).toEqual(startingPosition);
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[6].rectangle6);
 		})
 	})
 })
