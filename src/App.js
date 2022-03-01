@@ -11,8 +11,8 @@ const game = new GameOfLife(32, 70);
 // game.toggleLifeAndDeath(1, 2);
 // game.toggleLifeAndDeath(1, 3);
 const initialPosition = new StartingPosition();
-initialPosition.square(game, [1, 1]);
-initialPosition.square(game, [3, 3]);
+initialPosition.beacon(game, [1, 1]);
+
 
 
 function App() {

@@ -4,7 +4,7 @@ class GameSetUp {
 		// if <n, m> is the top-left corner:
 		// then <n, m>, <n, m + 1>, <n + 1, m>, <n + 1, m + 1>
 		// together make a 2x2 square.
-		
+
 		let square = Array(4);
 		square[0] = [...topLeftPair];
 		square[1] = [topLeftPair[0], topLeftPair[1] + 1];
@@ -14,6 +14,11 @@ class GameSetUp {
 		square.forEach(coord => {
 			game.toggleLifeAndDeath(...coord);
 		})
+	}
+
+	beacon(game, topLeftPair) {
+		this.square(game, topLeftPair);
+		this.square(game, [topLeftPair[0] + 2, topLeftPair[1] + 2]);
 	}
 }
 
