@@ -223,6 +223,24 @@ describe(`test suite for GameOfLife`, () => {
 		})
 	})
 
+	describe(`5 square patterns`, () => {
+		it(`Boat 5 should remain the same`, () => {
+			const game = new GameOfLife(5, 5);
+			game.toggleLifeAndDeath(1, 1);
+			game.toggleLifeAndDeath(1, 2);
+			game.toggleLifeAndDeath(2, 1);
+			game.toggleLifeAndDeath(2, 3);
+			game.toggleLifeAndDeath(3, 2);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[5].boat5);
+		})
+	})
+
 	describe(`6 square patterns`, () => {
 		it(`Double Arrow 6 turns into Arrow 7`, () => {
 			const game = new GameOfLife(5, 5);
