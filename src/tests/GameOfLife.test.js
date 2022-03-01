@@ -101,6 +101,20 @@ describe(`test suite for GameOfLife`, () => {
 			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[2].rectangle2);
 		})
+
+		it(`Chevron 3 turns into rectangular 2`, () => {
+			const game = new GameOfLife(3, 3);
+			game.toggleLifeAndDeath(0, 0);
+			game.toggleLifeAndDeath(1, 1);
+			game.toggleLifeAndDeath(2, 0);
+
+			const startingPosition = game.getBoard();
+			game.nextIteration();
+			const endingPosition = game.getBoard();
+
+			expect(endingPosition).not.toEqual(startingPosition);
+			expect(endingPosition).toEqual(patterns[2].rectangle2);
+		})
 	})
 
 	describe(`4 square patterns`, () => {
