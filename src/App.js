@@ -4,10 +4,11 @@ import GameOfLifeToroid from './js/GameOfLifeToroid';
 import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
-
+import startingStates from './js/startingStates';
 const gameNormal = new GameOfLife();
 const gameToroid = new GameOfLifeToroid();
 
+let game = startingStates.acorn.gameToroid;
 
 function App() {
   const [stop, setStop] = useState(true);

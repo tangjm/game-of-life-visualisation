@@ -1,9 +1,16 @@
-import GameOfLife from "../GameOfLife";
-import Patterns from "../Patterns"
+import GameOfLife from "../../GameOfLife";
+import GameOfLifeToroid from "../../GameOfLifeToroid";
+import Patterns from "../../Patterns";
 
 const game = new GameOfLife(32, 70);
-const initialPosition = new Patterns();
+const gameToroid = new GameOfLifeToroid(32, 70);
 
-initialPosition.acorn(game, [15, 20]);
+const patterns = new Patterns();
 
-export default game;
+patterns.acorn(game, [15, 20]);
+patterns.acorn(gameToroid, [15, 20]);
+
+export const acorn = {
+	game,
+	gameToroid
+}
