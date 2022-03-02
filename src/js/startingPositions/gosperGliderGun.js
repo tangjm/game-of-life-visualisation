@@ -1,5 +1,5 @@
-import GameOfLife from '../js/GameOfLife';
-import Patterns from '../js/Patterns';
+import GameOfLife from '../GameOfLifeToroid';
+import Patterns from '../Patterns';
 
 const game = new GameOfLife(32, 70);
 const initialPosition = new Patterns();

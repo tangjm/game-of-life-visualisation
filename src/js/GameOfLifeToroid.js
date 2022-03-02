@@ -6,9 +6,9 @@ class GameOfLife {
 			return Array(this.columns).fill(0);
 		});
 		this.neighbours = [
-			[-1, -1], [-1, 0], [-1, 1], 
-            [0, -1],           [0, 1], 
-            [1, -1], [1, 0], [1, 1]
+			[-1, -1], [-1, 0], [-1, 1],
+			[0, -1], [0, 1],
+			[1, -1], [1, 0], [1, 1]
 		];
 	}
 
@@ -25,16 +25,14 @@ class GameOfLife {
 		for (let neighbour of this.neighbours) {
 			liveNeighbours += this.isAlive(x + neighbour[0], y + neighbour[1]);
 		}
-		
 		if (liveNeighbours === 3) return 1;
 		if (liveNeighbours === 2) return this.isAlive(x, y);
 		return 0;
 	}
 
 	isAlive(x, y) {
-		if (x < 0 || y < 0 || x > this.rows - 1 || y > this.columns - 1) {
-			return 0;
-		}
+		x = (x % this.rows + this.rows) % this.rows;
+		y = (y % this.columns + this.columns) % this.columns;
 		return this.board[x][y];
 	}
 

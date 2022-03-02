@@ -1,8 +1,8 @@
-// import game from './patterns/gosperGliderGun';
+import game from './js//startingPositions/gosperGliderGun';
 // import game from './js/startingPositions/4boats';
 // import game from './js/startingPositions/rPentamino';
 // import game from './js/startingPositions/beacon'
-import game from './js/startingPositions/acorn'
+// import game from './js/startingPositions/acorn'
 import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
