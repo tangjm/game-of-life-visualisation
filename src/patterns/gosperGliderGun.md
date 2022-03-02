@@ -8,7 +8,7 @@ top left corner of a 2x2 square:
 top left corner of a smoke:
 <2, 10>
 
-top left corner of a gate:
+top left corner of a queenBee:
 <0, 20>
 
 */
@@ -43,7 +43,7 @@ from top to bottom, row by row
 
 */
 
-/* 7x5 gate
+/* 7x5 queenBee
 
 from top to bottom, row by row
 

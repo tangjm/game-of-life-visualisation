@@ -48,8 +48,8 @@ class Patterns {
 		game.toggleLifeAndDeath(x + 6, y + 3);
 	}
 
-	gate(game, topLeftPair) {
-		// 7x5 gate
+	queenBee(game, topLeftPair) {
+		// 7x5 queenBee
 		const [x, y] = topLeftPair;
 		game.toggleLifeAndDeath(x, y + 4);
 		game.toggleLifeAndDeath(x + 1, y + 2);
@@ -71,12 +71,12 @@ class Patterns {
 		const square = [x + 4, y];
 		const square2 = [x + 2, y + 34];
 		const smoke = [x + 2, y + 10];
-		const gate = [x, y + 20];
+		const queenBee = [x, y + 20];
 
 		this.square(game, square);
 		this.square(game, square2);
 		this.smoke(game, smoke);
-		this.gate(game, gate);
+		this.queenBee(game, queenBee);
 	}
 
 	acorn(game, topLeftPair) {
