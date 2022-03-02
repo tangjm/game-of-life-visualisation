@@ -10,8 +10,8 @@ const gameToroid = new GameOfLifeToroid();
 
 // let game = startingStates.acorn.gameToroid;
 // let game = startingStates.gospelGlider.game;
-// let game = startingStates.rPentamino.gameToroid;
-let game = startingStates.threeInARow.game;
+let game = startingStates.rPentamino.gameToroid;
+// let game = startingStates.empty8x8.game;
 
 function App() {
   const [stop, setStop] = useState(true);

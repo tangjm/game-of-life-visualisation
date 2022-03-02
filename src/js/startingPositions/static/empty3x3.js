@@ -1,5 +1,10 @@
-import GameOfLife from "../GameOfLife";
+import GameOfLife from "../../GameOfLife";
+import GameOfLifeToroid from "../../GameOfLifeToroid";
 
 const game = new GameOfLife();
+const gameToroid = new GameOfLifeToroid();
 
-export default game;
+export const empty3x3 = {
+	game,
+	gameToroid
+}
