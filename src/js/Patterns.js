@@ -1,4 +1,10 @@
-class GameSetUp {
+class Patterns {
+	threeInARow(game, topLeftPair) {
+		const [x, y] = topLeftPair;
+		game.toggleLifeAndDeath(x, y);
+		game.toggleLifeAndDeath(x, y + 1);
+		game.toggleLifeAndDeath(x, y + 2);
+	}
 
 	square(game, topLeftPair) {
 		// if <n, m> is the top-left corner:
@@ -66,7 +72,7 @@ class GameSetUp {
 		const square2 = [x + 2, y + 34];
 		const smoke = [x + 2, y + 10];
 		const gate = [x, y + 20];
-		
+
 		this.square(game, square);
 		this.square(game, square2);
 		this.smoke(game, smoke);
@@ -84,6 +90,39 @@ class GameSetUp {
 		game.toggleLifeAndDeath(x + 2, y + 5);
 		game.toggleLifeAndDeath(x + 2, y + 6);
 	}
+
+	rPentamino(game, topLeftPair) {
+		const [x, y] = topLeftPair;
+		game.toggleLifeAndDeath(x, y + 1);
+		game.toggleLifeAndDeath(x, y + 2);
+		game.toggleLifeAndDeath(x + 1, y);
+		game.toggleLifeAndDeath(x + 1, y + 1);
+		game.toggleLifeAndDeath(x + 2, y + 1);
+	}
+
+	fourBoats(game, topLeftPair) {
+		const [x, y] = topLeftPair;
+		game.toggleLifeAndDeath(x, y + 3);
+		game.toggleLifeAndDeath(x + 1, y + 2);
+		game.toggleLifeAndDeath(x + 1, y + 4);
+		game.toggleLifeAndDeath(x + 2, y + 1);
+		game.toggleLifeAndDeath(x + 2, y +3);
+		game.toggleLifeAndDeath(x + 2, y + 4);
+		game.toggleLifeAndDeath(x + 3, y);
+		game.toggleLifeAndDeath(x + 3, y + 2);
+		game.toggleLifeAndDeath(x + 3, y + 5);
+		game.toggleLifeAndDeath(x + 3, y + 6);
+		game.toggleLifeAndDeath(x + 4, y + 1);
+		game.toggleLifeAndDeath(x + 4, y + 2);
+		game.toggleLifeAndDeath(x + 4, y + 5);
+		game.toggleLifeAndDeath(x + 4, y + 7);
+		game.toggleLifeAndDeath(x + 5, y + 3);
+		game.toggleLifeAndDeath(x + 5, y + 4);
+		game.toggleLifeAndDeath(x + 5, y + 6);
+		game.toggleLifeAndDeath(x + 6, y + 3);
+		game.toggleLifeAndDeath(x + 6, y + 5);
+		game.toggleLifeAndDeath(x + 7, y + 4);
+	}
 }
 
-export default GameSetUp;
+export default Patterns;

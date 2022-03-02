@@ -1,21 +1,20 @@
-import GameOfLife from './js/GameOfLifeSimple';
-import StartingPosition from './js/GameSetUp';
+// import game from './patterns/gosperGliderGun';
+import game from './js/startingPositions/4boats';
+// import game from './js/startingPositions/rPentamino';
 import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
 
-const game = new GameOfLife(32, 70);
+
 // 32x50 default board size
 // game set up
 // game.toggleLifeAndDeath(1, 1);
 // game.toggleLifeAndDeath(1, 2);
 // game.toggleLifeAndDeath(1, 3);
-const initialPosition = new StartingPosition();
+
 // initialPosition.beacon(game, [1, 1]);
 // initialPosition.gospelGlider(game, [1, 1])
-initialPosition.acorn(game, [15, 20])
-
-
+// initialPosition.acorn(game, [15, 20])
 
 function App() {
   const [stop, setStop] = useState(true);
