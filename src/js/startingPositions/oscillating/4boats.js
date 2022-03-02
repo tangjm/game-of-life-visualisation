@@ -1,9 +1,11 @@
-import GameOfLife from "../GameOfLife";
-import Patterns from "../Patterns"
+import GameOfLife from "../../GameOfLife";
+import Patterns from "../../Patterns";
 
-const game = new GameOfLife(32, 70);
-const initialPosition = new Patterns();
+const game = new GameOfLife(20, 20);
+const patterns = new Patterns();
 
-initialPosition.fourBoats(game, [1, 1])
+patterns.fourBoats(game, [1, 1]);
 
-export default game;
+export const fourBoats = {
+	game
+}
