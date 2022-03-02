@@ -1,12 +1,13 @@
 
-
+import GameOfLife from './js/GameOfLife';
+import GameOfLifeToroid from './js/GameOfLifeToroid';
 import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
 
+const gameNormal = new GameOfLife();
+const gameToroid = new GameOfLifeToroid();
 
-// 32x50 default board size
-// game set up
 
 function App() {
   const [stop, setStop] = useState(true);
