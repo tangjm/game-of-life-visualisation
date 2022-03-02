@@ -1,4 +1,4 @@
-import GameOfLife from './js/GameOfLife';
+import GameOfLife from './js/GameOfLifeSimple';
 import StartingPosition from './js/GameSetUp';
 import './App.css';
 import { useState } from 'react';
