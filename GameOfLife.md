@@ -40,3 +40,9 @@ else if x is alive and has 2 live neighbours, x continues to live
 else x dies
 
 
+[] Only create 2 2d arrays and alternative between them rather than creating a new array for 
+each iteration.
+[] Modify the board in-place
+[] Account for edges 
+
+

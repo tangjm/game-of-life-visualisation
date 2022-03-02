@@ -4,6 +4,7 @@ import game from './js/startingPositions/gosperGliderGun';
 // import game from './js/startingPositions/beacon'
 // import game from './js/startingPositions/acorn';
 // import game from './js/startingPositions/empty3x3';
+// import game from './js/startingPositions/threeInARow';
 import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
@@ -11,11 +12,6 @@ import { Board } from './components/Board';
 
 // 32x50 default board size
 // game set up
-// game.toggleLifeAndDeath(1, 1);
-// game.toggleLifeAndDeath(1, 2);
-// game.toggleLifeAndDeath(1, 3);
-
-
 
 
 function App() {
