@@ -1,4 +1,4 @@
-describe(`test suite for GameOfLife edge cases`, () => {
+xdescribe(`test suite for GameOfLife edge cases`, () => {
 	describe(`tests for corner shapes`, () => {
 
 	})

@@ -1,5 +1,5 @@
 import GameOfLife from "../js/GameOfLife";
-import patterns from './patterns';
+import patterns from './testPatterns';
 
 describe(`test suite for GameOfLife`, () => {
 	describe(`1 square patterns`, () => {
