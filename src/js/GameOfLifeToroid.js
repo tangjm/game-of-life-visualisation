@@ -1,9 +1,7 @@
 class GameOfLife {
 	constructor(rows, columns) {
-		this.visibleRows = rows || 3;
-		this.visibleColumns = columns || 3;
-		this.rows = this.visibleRows + 6;
-		this.columns = this.visibleColumns + 6;
+		this.rows = rows || 3;
+		this.columns = columns || 3;
 		this.board = Array(this.rows).fill(0).map(row => {
 			return Array(this.columns).fill(0);
 		});
@@ -15,22 +13,10 @@ class GameOfLife {
 	}
 
 	getBoard() {
-		let board = Array(this.visibleRows).fill(0).map(row => {
-			return Array(this.visibleColumns).fill(0);
-		});
-		for (let i = 0; i < this.visibleRows; i++) {
-			for (let j = 0; j < this.visibleColumns; j++) {
-				board[i][j] = this.board[i + 3][j + 3];
-			}
-		}
-		return board;
+		return this.board;
 	}
 
 	toggleLifeAndDeath(x, y) {
-		// must be in range [3...this.rows - 3]
-		// [3...this.columns - 3]
-		x += 3;
-		y += 3;
 		this.board[x][y] = 1;
 	}
 

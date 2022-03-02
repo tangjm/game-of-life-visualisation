@@ -1,5 +1,6 @@
 class GameOfLife {
 	constructor(rows, columns) {
+		// minimum working board size is 
 		// actual board is 6 columns wider and 6 rows longer than the visible board
 		this.visibleRows = rows || 3;
 		this.visibleColumns = columns || 3;
