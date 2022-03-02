@@ -1,9 +1,15 @@
-import GameOfLife from '../GameOfLife';
-import Patterns from '../Patterns';
+import GameOfLife from "../../GameOfLife";
+import GameOfLifeToroid from "../../GameOfLifeToroid";
+import Patterns from "../../Patterns";
 
 const game = new GameOfLife(32, 70);
-const initialPosition = new Patterns();
+const gameToroid = new GameOfLifeToroid(32, 70);
+const patterns = new Patterns();
 
-initialPosition.gospelGlider(game, [1, 1]);
+patterns.gospelGlider(game, [1, 1]);
+patterns.gospelGlider(gameToroid, [1, 1]);
 
-export default game;
+export const gospelGlider = {
+	game,
+	gameToroid
+}

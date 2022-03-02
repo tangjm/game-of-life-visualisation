@@ -1,9 +1,15 @@
-import GameOfLife from "../GameOfLife";
-import Patterns from "../Patterns";
+import GameOfLife from "../../GameOfLife";
+import GameOfLifeToroid from "../../GameOfLifeToroid";
+import Patterns from "../../Patterns";
 
 const game = new GameOfLife(32, 70);
-const initialPosition = new Patterns();
+const gameToroid = new GameOfLifeToroid(50, 90);
+const patterns = new Patterns();
 
-initialPosition.rPentamino(game, [12, 30]);
+patterns.rPentamino(game, [12, 30]);
+patterns.rPentamino(gameToroid, [12, 30]);
 
-export default game;
+export const rPentamino = {
+	game,
+	gameToroid
+}
