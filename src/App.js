@@ -1,6 +1,8 @@
 // import game from './patterns/gosperGliderGun';
-import game from './js/startingPositions/4boats';
+// import game from './js/startingPositions/4boats';
 // import game from './js/startingPositions/rPentamino';
+// import game from './js/startingPositions/beacon'
+import game from './js/startingPositions/acorn'
 import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
@@ -12,9 +14,8 @@ import { Board } from './components/Board';
 // game.toggleLifeAndDeath(1, 2);
 // game.toggleLifeAndDeath(1, 3);
 
-// initialPosition.beacon(game, [1, 1]);
-// initialPosition.gospelGlider(game, [1, 1])
-// initialPosition.acorn(game, [15, 20])
+
+
 
 function App() {
   const [stop, setStop] = useState(true);
