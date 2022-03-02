@@ -1,4 +1,4 @@
-import GameOfLife from "../js/GameOfLifeToroid";
+import GameOfLife from "../js/GameOfLife";
 import patterns from './patterns';
 
 describe(`test suite for GameOfLife`, () => {

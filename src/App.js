@@ -13,7 +13,6 @@ import { Board } from './components/Board';
 // 32x50 default board size
 // game set up
 
-
 function App() {
   const [stop, setStop] = useState(true);
   const [board, setBoard] = useState(game.getBoard());
