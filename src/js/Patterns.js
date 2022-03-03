@@ -27,6 +27,16 @@ class Patterns {
 		this.square(game, [topLeftPair[0] + 2, topLeftPair[1] + 2]);
 	}
 
+	glider(game, topLeftPair) {
+		const [x, y] = topLeftPair;
+		const glider = [
+			[x, y + 1], 
+			[x + 1, y + 2],
+			[x + 2, y], [x + 2, y + 1], [x + 2, y + 2], 
+		];
+		glider.forEach(pair => game.toggleLifeAndDeath(...pair));
+	}
+
 	smoke(game, topLeftPair) {
 		// 7x8 smoke
 		const [x, y] = topLeftPair;
@@ -93,11 +103,12 @@ class Patterns {
 
 	rPentamino(game, topLeftPair) {
 		const [x, y] = topLeftPair;
-		game.toggleLifeAndDeath(x, y + 1);
-		game.toggleLifeAndDeath(x, y + 2);
-		game.toggleLifeAndDeath(x + 1, y);
-		game.toggleLifeAndDeath(x + 1, y + 1);
-		game.toggleLifeAndDeath(x + 2, y + 1);
+		const positions = [
+			[x, y + 1], [x, y + 2],
+			[x + 1, y], [x + 1, y + 1],
+			[x + 2, y + 1]
+		];
+		positions.forEach(pair => game.toggleLifeAndDeath(...pair));
 	}
 
 	fourBoats(game, topLeftPair) {

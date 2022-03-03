@@ -1,3 +1,4 @@
+import { glider } from './startingPositions/dynamic/glider';
 import { beacon } from './startingPositions/oscillating/beacon';
 import { threeInARow } from './startingPositions/oscillating/threeInARow';
 import { fourBoats } from './startingPositions/oscillating/4boats';
@@ -14,6 +15,7 @@ import { defaultBoard } from './startingPositions/static/defaultBoard';
 
 const startingStates = {
 	defaultBoard,
+	glider,
 	acorn,
 	gospelGlider,
 	rPentamino,
