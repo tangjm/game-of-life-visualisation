@@ -44,6 +44,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
+          <h2>Conway's Game of Life</h2>
           <div>
             <Board gameboard={board} toggleSquare={toggleSquare} />
           </div>
