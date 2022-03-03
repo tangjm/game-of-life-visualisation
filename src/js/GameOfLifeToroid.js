@@ -13,7 +13,7 @@ class GameOfLife {
 	}
 
 	getBoard() {
-		return this.board;
+		return this.board.slice();
 	}
 
 	toggleLifeAndDeath(x, y) {

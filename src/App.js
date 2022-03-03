@@ -9,9 +9,10 @@ const gameNormal = new GameOfLife();
 const gameToroid = new GameOfLifeToroid();
 
 // let game = startingStates.acorn.gameToroid;
-let game = startingStates.gospelGlider.game;
-// let game = startingStates.rPentamino.gameInPlace;
+// let game = startingStates.gospelGlider.game2Arrays;
+// let game = startingStates.rPentamino.game;
 // let game = startingStates.empty8x8.game;
+let game = startingStates.pufferfish.gameToroid;
 
 function App() {
   const [stop, setStop] = useState(true);

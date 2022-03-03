@@ -123,6 +123,36 @@ class Patterns {
 		game.toggleLifeAndDeath(x + 6, y + 5);
 		game.toggleLifeAndDeath(x + 7, y + 4);
 	}
+
+	pufferfish(game, topLeftPair) {
+		// 12 x 15
+		const [x, y] = topLeftPair;
+		// left half (12x7)
+		const left = [
+			[x, y + 3], 
+			[x + 1, y + 2], [x + 1, y + 3], [x + 1, y + 4],
+			[x + 2, y + 1], [x + 2, y + 2], [x + 2, y + 5],
+			[x + 3, y + 3], [x + 3, y + 4], [x + 3, y + 5],
+			[x + 5, y + 4], 
+			[x + 6, y + 2], [x + 6, y + 5],
+			[x + 7, y], [x + 7, y + 6], 
+			[x + 8, y], [x + 8, y + 1], [x + 8, y + 6],
+			[x + 9, y + 6], 
+			[x + 10, y + 3], [x + 10, y + 3], [x + 10, y + 5],
+			[x + 11, y + 4]
+		];
+		// right half is just [x, -y % y + y + 14] 
+		// we add 14 because the last element of an array is one less than the array length
+		// add y + y + 14 because % behaves abnormally with negative integers
+		let upperBound = y + 14;
+		let range = y + upperBound;
+		const right = left.map(pair => [pair[0], -pair[1] % range + range]);
+
+		for (let i = 0; i < left.length; i++) {
+			game.toggleLifeAndDeath(...left[i]);
+			game.toggleLifeAndDeath(...right[i]);
+		}
+	}
 }
 
 export default Patterns;
