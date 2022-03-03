@@ -6,7 +6,7 @@ import './App.css';
 import { useState } from 'react';
 import { Board } from './components/Board';
 
-let game = startingStates.empty32x70.game;
+let game = startingStates.defaultBoard.game;
 // let game = startingStates.acorn.gameToroid;
 // game = startingStates.gospelGlider.gameInPlace;
 // let game = startingStates.rPentamino.game;
