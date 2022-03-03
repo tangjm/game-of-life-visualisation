@@ -47,7 +47,9 @@ function App() {
           <div>
             <Board gameboard={board} toggleSquare={toggleSquare} />
           </div>
-          <button onClick={handleStartStop}>Start/Stop</button>
+          <button onClick={handleStartStop}>
+            {stop ? "Start" : "Stop"}
+          </button>
         </div>
       </header>
     </div>
