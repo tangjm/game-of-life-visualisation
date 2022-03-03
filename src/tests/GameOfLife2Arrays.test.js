@@ -1,7 +1,7 @@
 import GameOfLife from "../js/GameOfLife2Arrays";
 import patterns from './testPatterns';
 
-describe(`test suite for GameOfLife`, () => {
+describe(`test suite for GameOfLife2Arrays`, () => {
 	describe(`1 square patterns`, () => {
 		it(`Single square dies`, () => {
 			const game = new GameOfLife(3, 3);

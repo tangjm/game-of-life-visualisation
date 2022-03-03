@@ -7,11 +7,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			const game = new GameOfLife(3, 3);
 			game.toggleLifeAndDeath(1, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[0].dead);
 		})
 	})
@@ -22,11 +20,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 1);
 			game.toggleLifeAndDeath(2, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[0].dead);
 		})
 	})
@@ -38,11 +34,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 2);
 			game.toggleLifeAndDeath(2, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[4].square);
 		})
 
@@ -52,11 +46,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 1);
 			game.toggleLifeAndDeath(2, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[1].singleSquare);
 		})
 
@@ -66,11 +58,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 1);
 			game.toggleLifeAndDeath(2, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[3].horizontal3);
 		})
 
@@ -80,11 +70,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 1);
 			game.toggleLifeAndDeath(1, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[3].vertical3);
 		})
 
@@ -94,11 +82,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 0);
 			game.toggleLifeAndDeath(0, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[2].rectangle2);
 		})
 
@@ -108,11 +94,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 1);
 			game.toggleLifeAndDeath(2, 0);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[2].rectangle2);
 		})
 	})
@@ -125,12 +109,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(2, 1);
 			game.toggleLifeAndDeath(2, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
-
-			expect(endingPosition).toEqual(startingPosition);
-		})
+})
 
 		it(`Tub 4 doesn't change`, () => {
 			const game = new GameOfLife(3, 3);
@@ -139,12 +120,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(1, 2);
 			game.toggleLifeAndDeath(2, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
-
-			expect(endingPosition).toEqual(startingPosition);
-			expect(endingPosition).toEqual(patterns[4].tub4);
+expect(endingPosition).toEqual(patterns[4].tub4);
 		})
 
 		it(`Bent 4 turns into Zigzag 4`, () => {
@@ -154,11 +132,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(2, 3);
 			game.toggleLifeAndDeath(3, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[4].zigzag4);
 		})
 
@@ -169,11 +145,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(2, 2);
 			game.toggleLifeAndDeath(3, 1);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[6].rectangleVertical);
 		})
 
@@ -184,11 +158,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(3, 2);
 			game.toggleLifeAndDeath(4, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[6].rectangleHorizontal);
 		})
 
@@ -199,11 +171,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(2, 2);
 			game.toggleLifeAndDeath(2, 3);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[6].rectangleVertical);
 		})
 
@@ -214,11 +184,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(2, 2);
 			game.toggleLifeAndDeath(3, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[6].doubleArrow6);
 		})
 	})
@@ -232,12 +200,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(2, 3);
 			game.toggleLifeAndDeath(3, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
-
-			expect(endingPosition).toEqual(startingPosition);
-			expect(endingPosition).toEqual(patterns[5].boat5);
+expect(endingPosition).toEqual(patterns[5].boat5);
 		})
 	})
 
@@ -252,11 +217,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(3, 2);
 
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[7].arrow7);
 		})
 
@@ -269,12 +232,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(3, 1);
 			game.toggleLifeAndDeath(3, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
-
-			expect(endingPosition).toEqual(startingPosition);
-			expect(endingPosition).toEqual(patterns[6].beehive6);
+expect(endingPosition).toEqual(patterns[6].beehive6);
 		})
 
 		it(`Angle Brackets 6 turns into Diagonal Squares 8`, () => {
@@ -287,11 +247,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(4, 3);
 			game.toggleLifeAndDeath(4, 4);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[8].diagonalSquares8);
 		})
 	})
@@ -306,11 +264,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(3, 1);
 			game.toggleLifeAndDeath(3, 3);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[7].jellyfish7);
 		})
 
@@ -324,11 +280,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(2, 4);
 			game.toggleLifeAndDeath(3, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[8].hollow8);
 		})
 
@@ -342,12 +296,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(3, 3);
 			game.toggleLifeAndDeath(4, 2);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
-
-			expect(endingPosition).toEqual(startingPosition);
-			expect(endingPosition).toEqual(patterns[7].loaf7);
+expect(endingPosition).toEqual(patterns[7].loaf7);
 		})
 	})
 
@@ -364,11 +315,9 @@ describe(`test suite for GameOfLifeInPlace`, () => {
 			game.toggleLifeAndDeath(4, 4);
 			game.toggleLifeAndDeath(3, 3);
 
-			const startingPosition = game.getBoard();
 			game.nextIteration();
 			const endingPosition = game.getBoard();
 
-			expect(endingPosition).not.toEqual(startingPosition);
 			expect(endingPosition).toEqual(patterns[6].angleBrackets6);
 		})
 	})
