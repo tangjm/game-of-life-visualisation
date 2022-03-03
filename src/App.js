@@ -2,22 +2,24 @@
 import GameOfLife from './js/GameOfLife';
 import GameOfLifeToroid from './js/GameOfLifeToroid';
 import './App.css';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Board } from './components/Board';
 import startingStates from './js/startingStates';
 const gameNormal = new GameOfLife();
 const gameToroid = new GameOfLifeToroid();
 
 // let game = startingStates.acorn.gameToroid;
-// let game = startingStates.gospelGlider.game2Arrays;
+let game = startingStates.gospelGlider.gameInPlace;
 // let game = startingStates.rPentamino.game;
 // let game = startingStates.empty8x8.game;
-let game = startingStates.pufferfish.gameToroid;
+// let game = startingStates.pufferfish.gameToroid;
+
+let timer; 
 
 function App() {
   const [stop, setStop] = useState(true);
   const [board, setBoard] = useState(game.getBoard());
-  const [startStopHandler, setStartStopHandler] = useState(``);
+  // const [startStopHandler, setStartStopHandler] = useState(``);
 
   const toggleSquare = (x, y) => {
     game.toggleLifeAndDeath(x, y);
@@ -25,16 +27,18 @@ function App() {
   }
 
   const handleStart = () => {
-    setStartStopHandler(startStopHandler => {
-      return setInterval(() => {
+    // setStartStopHandler(startStopHandler => {
+      timer = setInterval(() => {
         game.nextIteration();
         setBoard(board => game.getBoard());
       }, 100);
-    });
+      // return timer;
+    // });
   };
 
   const handleStop = () => {
-    return clearInterval(startStopHandler);
+    // return clearInterval(startStopHandler);
+    return clearInterval(timer);
   }
 
   const handleStartStop = () => {
