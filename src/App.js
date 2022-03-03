@@ -19,7 +19,6 @@ let timer;
 function App() {
   const [stop, setStop] = useState(true);
   const [board, setBoard] = useState(game.getBoard());
-  // const [startStopHandler, setStartStopHandler] = useState(``);
 
   const toggleSquare = (x, y) => {
     game.toggleLifeAndDeath(x, y);
@@ -27,17 +26,13 @@ function App() {
   }
 
   const handleStart = () => {
-    // setStartStopHandler(startStopHandler => {
       timer = setInterval(() => {
         game.nextIteration();
         setBoard(board => game.getBoard());
       }, 100);
-      // return timer;
-    // });
   };
 
   const handleStop = () => {
-    // return clearInterval(startStopHandler);
     return clearInterval(timer);
   }
 
