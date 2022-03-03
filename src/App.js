@@ -1,15 +1,14 @@
 
 import GameOfLife from './js/GameOfLife';
 import GameOfLifeToroid from './js/GameOfLifeToroid';
-import './App.css';
-import { useCallback, useState } from 'react';
-import { Board } from './components/Board';
 import startingStates from './js/startingStates';
-const gameNormal = new GameOfLife();
-const gameToroid = new GameOfLifeToroid();
+import './App.css';
+import { useState } from 'react';
+import { Board } from './components/Board';
 
+let game = startingStates.empty32x70.game;
 // let game = startingStates.acorn.gameToroid;
-let game = startingStates.gospelGlider.gameInPlace;
+// game = startingStates.gospelGlider.gameInPlace;
 // let game = startingStates.rPentamino.game;
 // let game = startingStates.empty8x8.game;
 // let game = startingStates.pufferfish.gameToroid;

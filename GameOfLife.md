@@ -4,7 +4,6 @@
 
 The Game of life is a zero player game developed in the 70s by John Horton Conway. Check out the [wikipedia article](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) for a full description.
 The evolving state of the game is determined by the initial configuration - some configurations become infinitely evolving constellations, others eventually evolve into a stable patterns, whilst others die off completely.
-It is commonly used as a tech test as it can be solved in many different ways that clearly show the level of the programmer.
 
 ### The Brief
 
@@ -40,9 +39,11 @@ else if x is alive and has 2 live neighbours, x continues to live
 else x dies
 
 
-[] Only create 2 2d arrays and alternative between them rather than creating a new array for 
+[x] Only create 2 2d arrays and alternative between them rather than creating a new array for 
 each iteration.
-[] Modify the board in-place
-[] Account for edges 
+[x] Modify the board in-place
+[x] Add a version that treats the board like a toroid
+[x] Account for board edges
+[] Account for the fact that the game board is infinite 
 
 
