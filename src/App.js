@@ -3,6 +3,7 @@ import GameOfLife from './js/GameOfLife';
 import GameOfLifeToroid from './js/GameOfLifeToroid';
 import startingPositions from './js/startingStates';
 import './App.css';
+import { colourSchemes } from './js/colourSchemes';
 import { useState } from 'react';
 import { Board } from './components/Board';
 
@@ -57,9 +58,10 @@ function App() {
   }
 
   const handleSelectPosition = e => {
-    setPosition(position => e.target.value);
-    setGame(position => startingPositions[e.target.value].game);
-    setBoard(board => startingPositions[e.target.value].game.getBoard());
+    const newPosition = e.target.value;
+    setPosition(position => newPosition);
+    setGame(game => startingPositions[newPosition].game);
+    setBoard(board => startingPositions[newPosition].game.getBoard());
   }
 
   return (
@@ -78,6 +80,15 @@ function App() {
               generateStartingPositions()
             }
           </select>
+          {/* <select value={colourTheme} onChange={handleColourThemeChange}>
+            {
+              Object.keys(colourSchemes).map((colour, index) => {
+                return <option key={index} value={colour}>
+                  {colour}
+                </option>
+              })
+            }
+          </select> */}
         </div>
       </header>
     </div>
