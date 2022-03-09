@@ -1,6 +1,26 @@
-# Getting Started with Create React App
+# Conway's Game of Life
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ffa54a01-5ab3-4543-ac98-40c100b3e1fa/deploy-status)](https://app.netlify.com/sites/gameoflife-visualisation/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Visit deployed app](https://gameoflife-visualisation.netlify.app/
+)
+
+![game of life example](./public/Gospers_glider_gun.gif)
+
+The Game of life is a zero player game developed in the 70s by John Horton Conway. Check out the [wikipedia article](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) for a full description.
+The evolving state of the game is determined by the initial configuration - some configurations become infinitely evolving constellations, others eventually evolve into a stable patterns, whilst others die off completely.
+
+### The Brief
+
+The rules are as follows:
+
+* The game evolves in turns, commonly known as 'ticks'.
+* All changes occur at the same time.
+* Any live cell with 2 or 3 live neighbours survives until next tick.
+* Any live cell with less than 2 live neighbours dies (underpopulation).
+* Any live cell with more than 3 live neighbours dies (overpopulation).
+* Any dead cell with exactly 3 neighbours becomes a live cell (reproduction).
+
+Write code that is capable of calculating each new generation, given a starter board. Although you don't have to build a visualisation tool to be able to see the evolution, it should be easy to extend the program to add on a web or command line ui.
 
 ## Available Scripts
 
@@ -18,53 +38,13 @@ You may also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Product backlog
 
-### `npm run build`
+[x] Only create 2 2d arrays and alternative between them rather than creating a new array for 
+each iteration.
+[x] Modify the board in-place
+[x] Add a version that treats the board like a toroid
+[x] Account for board edges
+[] Account for the fact that the game board is infinite 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
