@@ -4,10 +4,10 @@ import GameOfLife2Arrays from "../../GameOfLife2Arrays";
 import GameOfLifeInPlace from "../../GameOfLifeInPlace";
 import Patterns from "../../Patterns";
 
-const game = new GameOfLife(32, 70);
-const gameToroid = new GameOfLifeToroid(32, 70);
-const game2Arrays = new GameOfLife2Arrays(32, 70);
-const gameInPlace = new GameOfLifeInPlace(32, 70);
+const game = new GameOfLife(32, 48);
+const gameToroid = new GameOfLifeToroid(32, 48);
+const game2Arrays = new GameOfLife2Arrays(32, 48);
+const gameInPlace = new GameOfLifeInPlace(32, 48);
 
 const patterns = new Patterns();
 

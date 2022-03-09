@@ -44,7 +44,7 @@ function App() {
     timer = setInterval(() => {
       game.nextIteration();
       setBoard(board => game.getBoard());
-    }, 100);
+    }, 50);
   };
 
   const handleStop = () => {
